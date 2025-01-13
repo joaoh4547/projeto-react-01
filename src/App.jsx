@@ -3,6 +3,59 @@ import './global.css'
 import styles from './App.module.css'
 import { Post } from "./components/Post"
 import { Sidebar } from "./components/Sidebar"
+
+
+const posts = [
+  {
+      id: 1,
+      author: {
+          id: 1,
+          name: 'João Henrique',
+          avatarUrl: 'https://github.com/joaoh4547.png',
+          role: "Developer"
+      },
+      content: [
+          {
+             type: 'paragraph',
+             content: 'Fala galeraa 👋' 
+          },
+          {
+              type: 'paragraph',
+              content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'
+          },
+          {
+              type: 'link',
+              content: 'jane.design/doctorcare'
+          }
+      ],
+      publishedAt: new Date('2025-01-13 17:00:00')
+  },
+  {
+      id: 2,
+      author: {
+          id: 2,
+          name: 'João Henrique',
+          avatarUrl: 'https://github.com/joaoh4547.png',
+          role: "Developer"
+      },
+      content: [
+          {
+             type: 'paragraph',
+             content: 'Fala galeraa 👋' 
+          },
+          {
+              type: 'paragraph',
+              content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'
+          },
+          {
+              type: 'link',
+              content: 'jane.design/doctorcare'
+          }
+      ],
+      publishedAt: new Date('2025-01-13 09:00:00')
+  }
+]
+
 export function App() {
 
   return (
@@ -11,14 +64,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post 
-            author="John Due" 
-            content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi illo iste vero quisquam ea nam! Possimus eveniet autem, iusto facere, corporis officiis, quasi consequatur veritatis maiores saepe assumenda aspernatur quia?"
-          />
-          <Post 
-            author="John Smith" 
-            content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic rem odio nihil eligendi quibusdam mollitia quam esse voluptas omnis non vero, magnam facere sapiente aut ratione rerum quas totam repudiandae!"
-          />
+         {
+          posts.map(post =>(
+            <Post
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}
+            />
+          ))
+         }
         </main>
       </div>
     </div>
