@@ -20,6 +20,12 @@ export function Post({author, publishedAt, content}){
         addSuffix: true,
     })
 
+
+    function deleteComment(comment){
+        console.log(`Deletar comentário ${comment}`)
+        
+    }
+
     function handleNewCommentChange(){
         setNewComment(event.target.value)
     }
@@ -78,6 +84,7 @@ export function Post({author, publishedAt, content}){
                     <Comment
                         key={comment}
                         content={comment}
+                        onDeleteComment={deleteComment}
                     />
                 ))
             }
